@@ -45,8 +45,23 @@ from tqdm import tqdm
 
    ![image](https://github.com/rindangchi/Scraping-with-API/assets/10241058/9f517e56-2f3a-4348-984c-4f80e387f5ef)
 
-   Until this step we already get the data from the first page.
+   Until this step we already get the data from the first page. Now let's arrange the data in a dataframe so it will be much easier to read. In the dictionary we see that the keys are ["data"] ["data"],
+   then we will create dataframe based on the json keys.
 
+    ```python
+
+   quote_data = pd.DataFrame(raw_response["data"]["data"])
+
+   quote_data
+
+   ```
+
+   Here is the result after we run the code:
+
+   ![image](https://github.com/rindangchi/Scraping-with-API/assets/10241058/33057e60-4621-4468-92f3-e78b91f2e0fd)
+
+
+   
    
 
   
