@@ -114,4 +114,13 @@ from tqdm import tqdm
 
    ![image](https://github.com/user-attachments/assets/447b2321-2029-41c3-92d3-68febc9ad1b4)
 
+   Finally, we can save the data in .csv format
+
+   ```python
+
+   final_data.to_csv("scrape_api_data.csv", index= False)
+
+   ```
+   
+
    
