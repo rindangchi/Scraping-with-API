@@ -59,9 +59,59 @@ from tqdm import tqdm
    Here is the result after we run the code:
 
    ![image](https://github.com/rindangchi/Scraping-with-API/assets/10241058/33057e60-4621-4468-92f3-e78b91f2e0fd)
-
-
-   
    
 
+3. In this step we will scrape not only 1 page, but we will scrape to 10 pages. 
+   
+   Before that, we will give a one second interval when we scrape the data from the API, the purpose is to avoid detected as a bug.
+
+    ```python
+
+   import time
+
+   ```
+
+    And below is the complete code to get data from page 1 until page 10:
+
+   ```python
+
+   #create empty list to store value in each page
+
+   tmp_data = []
+
+   #get data from page 1-10
+
+   for page in tqdm(range(1,11)):
+
+   #establish connection to API
+   resp = requests.get(f"https://tourney-api.ggwp.id/api/v2/media/getLatestArticle?page={page}")
+
+   #convert response to json
+   raw_response = resp.json()
+
+   #get data based on key
+   get_data = raw_response["data"]["data"]
+
+   #get data into the list
+   tmp_data.extend(get_data)
+
+   #give interval 1 second
+   time.sleep(1)
+
+   ```
+
+   After get all of the data, we will store the data into a dataframe
+
+    ```python
+
+   final_data = pd.DataFrame(tmp_data)
+
+   final_data
+
+   ```
   
+   Here is the result:
+
+   ![image](https://github.com/user-attachments/assets/447b2321-2029-41c3-92d3-68febc9ad1b4)
+
+   
